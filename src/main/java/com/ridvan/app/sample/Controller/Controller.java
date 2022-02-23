@@ -26,6 +26,12 @@ public class Controller
         return IpersonRepo.findAll();
     }
 
+    @GetMapping(value="/person/{userId}")
+    public Person getSingleUser(@PathVariable Long userId)
+    {
+        return IpersonRepo.findById(userId).orElse(null);
+           }
+
 
     @PostMapping(value = "/saveperson")
     public Person insertPerson(@RequestBody Person person)
